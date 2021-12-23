@@ -90,6 +90,7 @@ body {
 
 .form-control label {
   display: block;
+  color: gray;
 }
 
 .form-control input {
@@ -98,6 +99,8 @@ body {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+  color: gray;
+  outline: white;
 }
 
 footer {
