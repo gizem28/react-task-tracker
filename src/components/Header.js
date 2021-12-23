@@ -2,15 +2,17 @@ import React from 'react';
 // import PropTypes from "prop-types";
 import Button from './Button';
 
-const Header = ({title ="Task Tracker"}) => {
-    const handleClick=()=>{
-        console.log("Click with handleClick from header");
-    }
+const Header = ({title ="Task Tracker", toggleShow, showAddTask}) => {
+    // const handleClick=()=>{
+    //     console.log("Click with handleClick from header");
+    // }
     return (
-        <header className='header'>
+        <header className='header' >
             <h1>{title}</h1>
-            <Button handleClickFromHeader={handleClick} color="lightgrey" 
-            text="Show Add Task Bar"/>
+            <Button
+            color={showAddTask ? "pink":"purple"} 
+            toggleShow={toggleShow} 
+            text={showAddTask ? "Close Add Task Bar":"Show Add Task Bar"}/>
         </header>
     )
 }

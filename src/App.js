@@ -1,12 +1,13 @@
 import './App.css';
 import Header from './components/Header';
-import { useState } from 'react';
+import {
+  useState
+} from 'react';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
+  const [tasks, setTasks] = useState([{
       id: 1,
       text: "Study React Pre-Class Notes",
       day: "Dec 12th at 2:30pm",
@@ -26,39 +27,73 @@ function App() {
     },
   ]);
 
+  const [showAddTask, setShowAddTask] = useState(false)
+
   //Add Task
-  const addTask=(newTask)=>{
-    const id=Math.floor(Math.random()*100)+1;
-    const addNewTask ={id, ...newTask};
+  const addTask = (newTask) => {
+    const id = Math.floor(Math.random() * 100) + 1;
+    const addNewTask = {
+      id,
+      ...newTask
+    };
     setTasks([...tasks, addNewTask])
   }
 
   //Delete Task
-const deleteTask=(deletedTaskId)=>{
-  console.log("delete", deletedTaskId);
-  setTasks(tasks.filter((task)=> task.id!== deletedTaskId))
-}
+  const deleteTask = (deletedTaskId) => {
+    console.log("delete", deletedTaskId);
+    setTasks(tasks.filter((task) => task.id !== deletedTaskId))
+  }
 
-//Toggle Done
-const toggleDone=(toggleDoneId)=>{
-  setTasks(
-    tasks.map((task)=>task.id===toggleDoneId?{
-      ...task, isDone:!task.isDone}: task)
-  )
-}
+  //Toggle Done
+  const toggleDone = (toggleDoneId) => {
+    setTasks(
+      tasks.map((task) => task.id === toggleDoneId ? {
+        ...task,
+        isDone: !task.isDone
+      } : task)
+    )
+  }
 
+  //SHOW ADD TASK
+  const toggleShow = () => setShowAddTask(!showAddTask);
 
-  return (
-    <div className="container">
-     <Header title="Task Tracker"/>
-     <AddTask addTask={addTask} />
-     {
-       tasks.length>0 ? (<Tasks tasks={tasks} deleteTask={deleteTask}
-         toggleDone={toggleDone} />):(
-           <p style={{textAlign:"center", color:"gray"}}>No Task To Show</p>
-         )}
-    </div>
-  );
-}
+  return ( <
+    div className = "container" >
+    <
+    Header title = "Task Tracker"
+    showAddTask = {
+      showAddTask
+    }
+    toggleShow = {
+      toggleShow
+    }
+    />
 
-export default App;
+    {
+      showAddTask && < AddTask addTask = {
+        addTask
+      }
+      />}
+
+      {
+        tasks.length > 0 ? ( < Tasks tasks = {
+            tasks
+          }
+          deleteTask = {
+            deleteTask
+          }
+          toggleDone = {
+            toggleDone
+          }
+          />
+          ):( 
+            <p style = {{
+              textAlign: "center",
+              color: "gray"
+            }} > No Task To Show </p>
+        )} </div>
+    );
+  }
+
+  export default App;
