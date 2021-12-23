@@ -7,7 +7,8 @@ const Button = ({handleClickFromHeader, color, text}) => {
     // }
     return (
         <div>
-            <button className='btn' onClick={handleClickFromHeader} style={{backgroundColor:color}}
+            <button className='btn' onClick={handleClickFromHeader} 
+            style={{backgroundColor:color}}
             >{text}</button>
         </div>
     )
