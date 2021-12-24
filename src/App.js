@@ -34,17 +34,23 @@ useEffect(()=>{
   }, [])
 
 
-  //Add Task
+  //*Add Task Fetch Function
+  // const addTask = async(newTask)=>{
+  //   const res = await fetch(baseUrl,{
+  //     method:"POST",
+  //     headers:{
+  //       "Content-type":"application/json"
+  //     },
+  //     body:JSON.stringify(newTask)
+  //   });
+  //   fetchTask(res);
+  // };
+
+  //*Add Task Axios
   const addTask = async(newTask)=>{
-    const res = await fetch(baseUrl,{
-      method:"POST",
-      headers:{
-        "Content-type":"application/json"
-      },
-      body:JSON.stringify(newTask)
-    });
+    const res =await axios.post(baseUrl, newTask)
     fetchTask(res);
-  };
+  }
 
   // const addTask = (newTask) => {
   //   const id = Math.floor(Math.random() * 100) + 1;
@@ -55,21 +61,59 @@ useEffect(()=>{
   //   setTasks([...tasks, addNewTask])
   // }
 
-  //Delete Task
-  const deleteTask = (deletedTaskId) => {
-    console.log("delete", deletedTaskId);
-    setTasks(tasks.filter((task) => task.id !== deletedTaskId))
+  //*Delete Task
+  // const deleteTask = (deletedTaskId) => {
+  //   console.log("delete", deletedTaskId);
+  //   setTasks(tasks.filter((task) => task.id !== deletedTaskId))
+  // }
+
+  //*Delete with Fetch
+  // const deleteTask= async (deletedTaskId)=>{
+  // await fetch(`${baseUrl}/${deletedTaskId}`, {
+  //   method:"DELETE",
+  // });
+  // fetchTask();
+  // };
+
+  //*Delete with Axios
+  const deleteTask = async(deletedTaskId)=>{
+    await axios.delete(`${baseUrl}/${deletedTaskId}`);
+    fetchTask();
   }
 
-  //Toggle Done
-  const toggleDone = (toggleDoneId) => {
-    setTasks(
-      tasks.map((task) => task.id === toggleDoneId ? {
-        ...task,
-        isDone: !task.isDone
-      } : task)
-    )
-  }
+  //*Toggle Done
+  // const toggleDone = (toggleDoneId) => {
+  //   setTasks(
+  //     tasks.map((task) => task.id === toggleDoneId ? {
+  //       ...task,
+  //       isDone: !task.isDone
+  //     } : task)
+  //   )
+  // }
+
+  //*Toggle Done Fetch
+    const toggleDone = async(toggleDoneId)=>{
+    // const res= await fetch(`${baseUrl}/${toggleDoneId}`)
+    // const data =await res.json();
+    // const updatedTask={...data, isDone: !data.isDone};
+  //   await fetch(`${baseUrl}/${toggleDoneId}`, {
+  //     method:"PUT",
+  //     headers:{
+  //       "Content-type":"application/json",
+  //     },
+  //     body: JSON.stringify(updatedTask),
+  //   });
+  //   fetchTask();
+  // };
+
+   //*Toggle Done Axios
+   const {data}=await axios.get(`${baseUrl}/${toggleDoneId}`);
+   const updatedTask={...data, isDone:!data.isDone};
+
+   await axios.put(`${baseUrl}/${toggleDoneId}`, updatedTask);
+   fetchTask();
+  };
+   
 
   //SHOW ADD TASK
   const toggleShow = () => setShowAddTask(!showAddTask);

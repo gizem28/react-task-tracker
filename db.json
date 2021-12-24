@@ -1,52 +1,22 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "text": "Study React Pre-Class Notes",
-      "day": "Feb 5th at 2:30pm",
-      "isDone": false
-    },
-    {
-      "id": 2,
-      "text": "Feed the Dog",
-      "day": "Feb 6th at 1:30pm",
-      "isDone": true
-    },
-    {
-      "text": "Wash Car",
-      "day": "Feb 10th at 3:00pm",
+      "text": "Wash car",
+      "day": "Feb 18th at 10:00am",
       "isDone": false,
       "id": 3
     },
     {
-      "text": "Clean Room",
-      "day": "Feb 7th at 10:00pm",
+      "text": "Study react pre-class notes",
+      "day": "Feb 5th at 2:30pm",
       "isDone": false,
       "id": 4
     },
     {
-      "text": "gizem",
-      "day": "odun",
+      "text": "Feed the cat",
+      "day": "Feb 9th at 2:30pm",
       "isDone": false,
       "id": 5
-    },
-    {
-      "text": "lkend",
-      "day": "kjenf",
-      "isDone": false,
-      "id": 6
-    },
-    {
-      "text": "wd",
-      "day": "wd",
-      "isDone": false,
-      "id": 7
-    },
-    {
-      "text": "w",
-      "day": "d",
-      "isDone": false,
-      "id": 8
     }
   ]
 }
