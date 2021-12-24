@@ -10,7 +10,7 @@ const Header = ({title ="Task Tracker", toggleShow, showAddTask}) => {
         <header className='header' >
             <h1>{title}</h1>
             <Button
-            color={showAddTask ? "pink":"purple"} 
+            color={showAddTask ? "pink":"rgb(185, 247, 177)"} 
             toggleShow={toggleShow} 
             text={showAddTask ? "Close Add Task Bar":"Show Add Task Bar"}/>
         </header>
