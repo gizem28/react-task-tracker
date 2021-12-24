@@ -35,6 +35,18 @@
       "day": "kjenf",
       "isDone": false,
       "id": 6
+    },
+    {
+      "text": "wd",
+      "day": "wd",
+      "isDone": false,
+      "id": 7
+    },
+    {
+      "text": "w",
+      "day": "d",
+      "isDone": false,
+      "id": 8
     }
   ]
 }
