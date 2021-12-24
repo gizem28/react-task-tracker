@@ -35,14 +35,25 @@ useEffect(()=>{
 
 
   //Add Task
-  const addTask = (newTask) => {
-    const id = Math.floor(Math.random() * 100) + 1;
-    const addNewTask = {
-      id,
-      ...newTask
-    };
-    setTasks([...tasks, addNewTask])
-  }
+  const addTask = async(newTask)=>{
+    const res = await fetch(baseUrl,{
+      method:"POST",
+      headers:{
+        "Content-type":"application/json"
+      },
+      body:JSON.stringify(newTask)
+    });
+    fetchTask(res);
+  };
+
+  // const addTask = (newTask) => {
+  //   const id = Math.floor(Math.random() * 100) + 1;
+  //   const addNewTask = {
+  //     id,
+  //     ...newTask
+  //   };
+  //   setTasks([...tasks, addNewTask])
+  // }
 
   //Delete Task
   const deleteTask = (deletedTaskId) => {
