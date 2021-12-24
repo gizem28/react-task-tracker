@@ -6,8 +6,11 @@ import {
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 import axios from 'axios';
+import image from "./sky.jpg";
 
 function App() {
+  <div style={{backgroundImage:`url(${image})`, width:400}}></div>
+
   const [tasks, setTasks] = useState([]);
 
   const [showAddTask, setShowAddTask] = useState(false)
