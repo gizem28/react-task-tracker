@@ -11,7 +11,7 @@ const Button = ({toggleShow, color, text}) => {
             style={{backgroundColor:color}}
             >{text}</button>
         </div>
-    )
-}
+    );
+};
 
 export default Button
