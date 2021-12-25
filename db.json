@@ -9,12 +9,12 @@
     {
       "text": "Feed the cat",
       "day": "Feb 9th at 2:30pm",
-      "isDone": false,
+      "isDone": true,
       "id": 5
     },
     {
-      "text": "ce",
-      "day": "d",
+      "text": "study react",
+      "day": "every day",
       "isDone": false,
       "id": 6
     }
