@@ -12,7 +12,7 @@ function App() {
 
   const [showAddTask, setShowAddTask] = useState(false)
 
-  const baseUrl ="https://task-tracker28.herokuapp.com/";
+  const baseUrl ="https://task-tracker28.herokuapp.com/tasks";
   // const baseUrl = "http://localhost:5000/tasks";
 
   const [tasks, setTasks] = useState([
